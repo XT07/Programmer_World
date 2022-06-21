@@ -6,3 +6,13 @@ body{
 h2{
     margin: 0;
 }
+.spanErro{
+    color: red;
+}
+.formInput{
+    outline: none;
+    border: none;
+    background: none;
+    border-bottom: 2px solid white;
+    color: white;
+}
