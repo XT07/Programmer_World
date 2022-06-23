@@ -53,7 +53,7 @@
         }
     }
 ?>
-<form action="" method="POST">
+<form action="" method="POST" class="formLog">
     <fieldset>
         <h2>Cadastro</h2>
         <p>Tem login ? <a href="login.php">Faça login aqui</a></p>
@@ -69,7 +69,7 @@
         <label>Confirmar senha</label><br>
         <input type="password" name="senhaCop" maxlenght="125" class="formInput"><br>
         <span class="spanErro"><?php echo $senhaCopErro; ?></span><br>
-        <input type="submit" value="Cadastrar" name="cadastrar">
+        <input type="submit" value="Cadastrar" name="cadastrar" class="btn">
     </fieldset>
 </form>
 <?php

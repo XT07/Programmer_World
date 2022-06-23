@@ -1,4 +1,4 @@
-    body{
+body{
     background-color: black;
     font-size: 20px;
     color: white;
@@ -13,6 +13,29 @@ h2{
     outline: none;
     border: none;
     background: none;
-    border-bottom: 2px solid white;
+    border-bottom: 2px solid #1E90FF;
     color: white;
+}
+fieldset{
+    border-radius: 15px;
+    border-color: #1E90FF;
+    margin: 0 auto;
+    margin-top: 20px;
+    width: 20%;
+    text-align: center;
+}
+a{
+    color: white;
+    text-decoration: none;
+}
+.btn{
+    background: none;
+    border: solid 1px #1E90FF;
+    color: white;
+    font-size: 20px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 15px;
+    cursor: pointer;
 }

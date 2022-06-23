@@ -48,7 +48,7 @@
         <label>Senha</label><br>
         <input type="password" name="senha" maxlength="100" class="formInput"><br>
         <span class="spanErro"><?php echo $senhaErro; ?></span><br>
-        <input type="submit" value="Logar" name="logar">
+        <input type="submit" value="Logar" name="logar" class="btn">
     </fieldset>
 </form>
 <?php
