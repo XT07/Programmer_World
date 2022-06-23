@@ -39,3 +39,16 @@ a{
     border-radius: 15px;
     cursor: pointer;
 }
+.linha{
+    border: none;
+    border-top: 2px solid #1E90FF;
+    width: 35%;
+    margin-top: 20px;
+}
+footer{
+    text-align: center;
+    letter-spacing: 2px;
+}
+footer img {
+    width: 80px;
+}
