@@ -8,6 +8,3 @@
         <link rel="stylesheet" href="../css/estilo.css">
         <title>Programmer World</title>
     </head>
-    <body>
-
-</html>

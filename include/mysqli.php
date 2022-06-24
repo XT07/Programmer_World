@@ -1,6 +1,6 @@
 <?php
     define("HOST", "localhost");
-    define("PORT", "3308");
+    define("PORT", "3306");
     define("USER", "root");
     define("DB", "pw");
     define("PASS", "");

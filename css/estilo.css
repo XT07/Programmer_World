@@ -1,3 +1,10 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+ul{
+    list-style: none;
+}
 body{
     background-color: black;
     font-size: 20px;
@@ -22,7 +29,6 @@ fieldset{
     margin: 0 auto;
     margin-top: 20px;
     width: 20%;
-    text-align: center;
 }
 a{
     color: white;
@@ -46,9 +52,70 @@ a{
     margin-top: 20px;
 }
 footer{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-align: center;
     letter-spacing: 2px;
 }
 footer img {
     width: 80px;
+}
+.ling{
+    float: left;
+}
+.lingR{
+    margin-top: 10px;
+}
+.formTop{
+    text-align: center;
+}
+.clear{
+    clear: both;
+}
+.formBottom{
+    text-align: center;
+}
+.voltar{
+    color: #1E90FF;
+}
+.voltarIn{
+    float: left;
+}
+.caPrPs{
+    border: 2px solid #1E90FF;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 15px;
+}
+hr{
+    text-align: center;
+}
+/*menu*/
+.imgMenu{
+    width: 35px;
+}
+.checkMenu{
+    display: none;
+}
+.navMenu{
+    background-color: #1E90FF;
+    width: 180px;
+    left: -125px;
+    position: absolute;
+    height: 100%;
+}
+.checkMenu:checked ~ .navMenu{
+    transform: translateX(125px);
+}
+.ulMenu{
+    padding-top: 70px;
+}
+.aMenu{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.lMenu{
+    z-index: 1;
+    position: absolute;
+    padding: 15px;
 }
