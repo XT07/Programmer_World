@@ -1,7 +1,3 @@
-*{
-    margin: 0;
-    padding: 0;
-}
 ul{
     list-style: none;
 }
@@ -56,6 +52,12 @@ footer{
     text-align: center;
     letter-spacing: 2px;
 }
+footer hr{
+    border: none;
+    border-top: 2px solid #1E90FF;
+    width: 35%;
+    margin-top: 20px;
+}
 footer img {
     width: 80px;
 }
@@ -87,12 +89,10 @@ footer img {
     padding-right: 10px;
     border-radius: 15px;
 }
-hr{
-    text-align: center;
-}
 /*menu*/
 .imgMenu{
     width: 35px;
+    cursor: pointer;
 }
 .checkMenu{
     display: none;
@@ -100,22 +100,35 @@ hr{
 .navMenu{
     background-color: #1E90FF;
     width: 180px;
-    left: -125px;
+    left: -180px;
     position: absolute;
     height: 100%;
 }
 .checkMenu:checked ~ .navMenu{
-    transform: translateX(125px);
+    transform: translateX(180px);
 }
 .ulMenu{
-    padding-top: 70px;
+    margin-top: 70px;
+    padding: 0 0;
+    list-style: none;
 }
 .aMenu{
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding: 20px;
+    display: block;
+}
+.aMenu:hover{
+    background: white;
+    color: #1E90FF;
 }
 .lMenu{
     z-index: 1;
     position: absolute;
     padding: 15px;
+}
+/*drop menu*/
+.ul-chat, .ul-pro, .ul-conta{
+    font-size: 0px;
+}
+.aMenu:hover ~ .ul-chat, .ul-pro, .ul-conta{
+    font-size: 15px;
 }
