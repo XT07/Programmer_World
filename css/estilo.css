@@ -1,4 +1,5 @@
 ul{
+    padding: 0 0;
     list-style: none;
 }
 body{
@@ -6,8 +7,13 @@ body{
     font-size: 20px;
     color: white;
 }
+h1{
+    margin: 0;
+    padding: 0;
+}
 h2{
     margin: 0;
+    padding: 0;
 }
 .spanErro{
     color: red;
@@ -89,6 +95,33 @@ footer img {
     padding-right: 10px;
     border-radius: 15px;
 }
+.container{
+    margin: 0 auto;
+    float: right;
+    margin-right: 25%;
+    height: 100%;
+    position: absolute;
+    margin-left: 25%;
+    padding-left: 40px;
+    padding-right: 40px;
+    width: 50%;
+    border-left: 2px solid #1E90FF;
+    border-right: 2px solid #1E90FF;
+}
+.info{
+    border-left: 2px solid #1E90FF;
+    width: 70%;
+    float: right;
+    height: 100%;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+.contaUl{
+    list-style: none;
+}
+.contaUl li{
+    padding: 30px;
+}
 /*menu*/
 .imgMenu{
     width: 35px;
@@ -126,9 +159,28 @@ footer img {
     padding: 15px;
 }
 /*drop menu*/
-.ul-chat, .ul-pro, .ul-conta{
-    font-size: 0px;
+.dm{
+    margin-left: 40px;
+    width: 180px;
+    left: -180px;
+    position: absolute;
 }
-.aMenu:hover ~ .ul-chat, .ul-pro, .ul-conta{
-    font-size: 15px;
+.btnMenu{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 25px;
+    padding-right: 114px;
+    background: none;
+    outline: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+.btnMenu:hover{
+    background: white;
+    color: #1E90FF;
+}
+.btnMenu:hover ~ .dm{
+    transform: translateX(180);
 }

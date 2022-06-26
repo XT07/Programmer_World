@@ -25,4 +25,16 @@
             </li>
         </ul>
     </div>
+    <div class="container">
+        <div class="info">
+            <h2>Perfil</h2>
+        </div>
+        <ul class="contaUl">
+            <li>Perfil</li>
+            <li>Privacidade</li>
+            <li>Aparência</li>
+            <li>Notificações</li>
+            <li><a href="log-out.php">Encerrar sessão</a></li>
+        </ul>
+    </div>
 </body>
