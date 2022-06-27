@@ -4,6 +4,7 @@
     $emailErro = $email = "";
     $senhaErro = $senha = "";
     $senhaCopErro = "";
+    $pr = "";
     if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["cadastrar"])){
         if(empty($_POST["usuario"])){
             $usuarioErro = "Campo obrigatório";
@@ -29,24 +30,30 @@
         else{
             $senha = $_POST["senhaCop"];
         }
+        if(empty($_POST["pr"])){
+            $pr = false;
+        }
+        else{
+            $pr = true;
+        }
     }
     include("../include/mysqli.php");
     if($usuario && $email && $senha && isset($_POST["cadastrar"])){
-        $sql = $pdo->prepare("SELECT * FROM no_pr WHERE nome = ?");
+        $sql = $pdo->prepare("SELECT * FROM usuario WHERE nome = ?");
         if($sql->execute(array($usuario))){
             if($sql->rowCount() > 0){
                 $usuarioErro = "Este usuário já existe";
             }
             else{
-                $sql = $pdo->prepare("SELECT * FROM no_pr WHERE email = ?");
+                $sql = $pdo->prepare("SELECT * FROM usuario WHERE email = ?");
                 if($sql->execute(array($email))){
                     if($sql->rowCount() > 0){
                         $emailErro = "Este e-mail já foi cadastrado";
                     }
                     else{
-                        $sql = $pdo->prepare("INSERT INTO no_pr VALUES (null, ?, ?, ?)");
-                        if($sql->execute(array($usuario, $email, md5($senha)))){}
-                        header("LOCATION: login.php");
+                        $sql = $pdo->prepare("INSERT INTO usuario VALUES (null, ?, ?, ?, ?)");
+                        if($sql->execute(array($usuario, $email, md5($senha), $pr))){}
+                        header("LOCATION: pr-no.php");
                     }
                 }
             }
@@ -71,6 +78,8 @@
                 <label>Confirmar senha</label><br>
                 <input type="password" name="senhaCop" maxlenght="125" class="formInput"><br>
                 <span class="spanErro"><?php echo $senhaCopErro; ?></span><br>
+                <label>Sou programador</label><br>
+                <input type="checkbox" name="pr" class="formInput"><br>
             </div>
             <div class="formBottom">
                 <input type="submit" value="Cadastrar" name="cadastrar" class="btn">
