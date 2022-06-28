@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require("../templates/header.php");
 ?>
 <body style="margin: 0; padding: 0;">

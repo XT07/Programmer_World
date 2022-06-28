@@ -116,6 +116,13 @@ footer img {
     padding-left: 40px;
     padding-right: 40px;
 }
+.info h1{
+    margin-top: 20px;
+}
+.info h2{
+    margin: 0;
+    padding: 0;
+}
 .contaUl{
     list-style: none;
 }
@@ -157,30 +164,4 @@ footer img {
     z-index: 1;
     position: absolute;
     padding: 15px;
-}
-/*drop menu*/
-.dm{
-    margin-left: 40px;
-    width: 180px;
-    left: -180px;
-    position: absolute;
-}
-.btnMenu{
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-left: 25px;
-    padding-right: 114px;
-    background: none;
-    outline: none;
-    border: none;
-    color: white;
-    font-size: 20px;
-    cursor: pointer;
-}
-.btnMenu:hover{
-    background: white;
-    color: #1E90FF;
-}
-.btnMenu:hover ~ .dm{
-    transform: translateX(180);
 }

@@ -1,4 +1,7 @@
 <?php
+    session_start();
+    $_SESSION["usuario"];
+    $_SESSION["pr"];
     require("../templates/header.php");
 ?>
 <body style="margin: 0; padding: 0;">
@@ -27,10 +30,18 @@
     </div>
     <div class="container">
         <div class="info">
-            <h2>Perfil</h2>
+            <h1>Perfil</h1>
+            <p>
+                <?php
+                    echo "Olá, ".$_SESSION['usuario']."<br>";
+                    if($_SESSION["pr"] == 1){
+                    echo "Programador";
+                    }
+                ?>
+            </p>
         </div>
         <ul class="contaUl">
-            <li>Perfil</li>
+            <li><a href="conta.php">Perfil</a></li>
             <li>Privacidade</li>
             <li>Aparência</li>
             <li>Notificações</li>

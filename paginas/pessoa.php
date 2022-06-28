@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require("../templates/header.php");
     $usuarioErro = $usuario = "";
     $emailErro = $email = "";
@@ -53,7 +54,7 @@
                     else{
                         $sql = $pdo->prepare("INSERT INTO usuario VALUES (null, ?, ?, ?, ?)");
                         if($sql->execute(array($usuario, $email, md5($senha), $pr))){}
-                        header("LOCATION: pr-no.php");
+                        header("LOCATION: login.php");
                     }
                 }
             }
@@ -84,7 +85,7 @@
             <div class="formBottom">
                 <input type="submit" value="Cadastrar" name="cadastrar" class="btn">
             </div>
-            <a href="caPrPs.php"><b class="voltar"><<</b> Voltar</a>
+            <a href="login.php"><b class="voltar"><<</b> Voltar</a>
         </fieldset>
     </form>
 </body>
