@@ -1,5 +1,7 @@
 <?php
     session_start();
+    $_SESSION["usuario"] = "";
+    $_SESSION["senha"] = "";
     require("../templates/header.php");
     $usuarioErro = $usuario = "";
     $senhaErro = $senha = "";

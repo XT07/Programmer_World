@@ -1,5 +1,10 @@
 <?php
     session_start();
+    $_SESSION["usuario"];
+    $_SESSION["senha"];
+    if(empty($_SESSION["usuario"]) || empty($_SESSION["senha"])){
+        header("location: login.php");
+    }
     require("../templates/header.php");
 ?>
 <body style="margin: 0; padding: 0;">

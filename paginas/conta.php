@@ -1,6 +1,11 @@
 <?php
     session_start();
     $_SESSION["usuario"];
+    $_SESSION["senha"];
+    if(empty($_SESSION["usuario"]) || empty($_SESSION["senha"])){
+        header("location: login.php");
+    }
+    $_SESSION["usuario"];
     $_SESSION["pr"];
     require("../templates/header.php");
 ?>
