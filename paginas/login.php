@@ -2,6 +2,9 @@
     session_start();
     $_SESSION["usuario"] = "";
     $_SESSION["senha"] = "";
+    $_SESSION['email'] = "";
+    $_SESSION['foto'] = "";
+    $_SESSION['descricao'] = "";
     require("../templates/header.php");
     $usuarioErro = $usuario = "";
     $senhaErro = $senha = "";
@@ -37,6 +40,10 @@
                     $_SESSION["usuario"] = $values["nome"];
                     $_SESSION["senha"] = $values["senha"];
                     $_SESSION["pr"] = $values["pr"];
+                    $_SESSION['email'] = $values["email"];
+                    $_SESSION['foto'] = $values["foto"];
+                    $_SESSION['descricao'] = $values["descricao"];
+                    $_SESSION['id'] = $values["id"];
                 }
             if($sql->rowCount() > 0){
                 header("location: home.php");

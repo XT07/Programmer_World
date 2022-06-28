@@ -102,7 +102,7 @@ footer img {
     height: 100%;
     position: absolute;
     margin-left: 25%;
-    padding-left: 40px;
+    padding-left: 20px;
     padding-right: 40px;
     width: 50%;
     border-left: 2px solid #1E90FF;
@@ -110,7 +110,7 @@ footer img {
 }
 .info{
     border-left: 2px solid #1E90FF;
-    width: 70%;
+    width: 65%;
     float: right;
     height: 100%;
     padding-left: 40px;
@@ -125,9 +125,34 @@ footer img {
 }
 .contaUl{
     list-style: none;
+    margin: 0;
+    padding: 0;
 }
 .contaUl li{
     padding: 30px;
+}
+.perfilFoto{
+    width: 90px;
+    border-radius: 50px;
+    margin-top: 20px;
+}
+.ulFoto{
+    float: right;
+}
+.aPerfil{
+    font-size: 15px;
+}
+.descricao{
+    margin-top: 10px;
+    border-radius: 15px;
+    width: 500px;
+    height: 250px;
+    resize: none;
+    padding: 10px 10px;
+    background: none;
+    border: 2px solid #1E90FF;
+    outline: none;
+    color: white;
 }
 /*menu*/
 .imgMenu{

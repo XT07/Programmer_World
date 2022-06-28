@@ -2,11 +2,13 @@
     session_start();
     $_SESSION["usuario"];
     $_SESSION["senha"];
+    $_SESSION['descricao'];
+    $_SESSION['id'];
     if(empty($_SESSION["usuario"]) || empty($_SESSION["senha"])){
         header("location: login.php");
     }
-    $_SESSION["usuario"];
     $_SESSION["pr"];
+    $_SESSION['email'];
     require("../templates/header.php");
 ?>
 <body style="margin: 0; padding: 0;">
@@ -35,6 +37,11 @@
     </div>
     <div class="container">
         <div class="info">
+            <ul class="ulFoto">
+                <li>
+                    <img src="../img/perfil.jpg" class="perfilFoto"><br>
+                </li>
+            </ul>
             <h1>Perfil</h1>
             <p>
                 <?php
@@ -44,6 +51,20 @@
                     }
                 ?>
             </p>
+            <p>
+                <?php
+                    echo "E-mail: ".$_SESSION['email']."<br>";
+                ?>
+            </p>
+            <?php
+                if(empty($_SESSION["descicao"])){
+
+                }
+                else{
+                    echo $_SESSION["descricao"];
+                }
+            ?>
+            <p><a href="editPerfil.php" class="aPerfil">Editar perfil</a></p>
         </div>
         <ul class="contaUl">
             <li><a href="conta.php">Perfil</a></li>

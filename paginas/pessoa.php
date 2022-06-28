@@ -52,7 +52,7 @@
                         $emailErro = "Este e-mail já foi cadastrado";
                     }
                     else{
-                        $sql = $pdo->prepare("INSERT INTO usuario VALUES (null, ?, ?, ?, ?)");
+                        $sql = $pdo->prepare("INSERT INTO usuario VALUES (null, ?, ?, ?, ?, null, null)");
                         if($sql->execute(array($usuario, $email, md5($senha), $pr))){}
                         header("LOCATION: login.php");
                     }
