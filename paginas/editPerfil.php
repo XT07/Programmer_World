@@ -2,13 +2,14 @@
     session_start();
     $_SESSION["usuario"];
     $_SESSION["senha"];
-    $_SESSION['foto'];
     if(empty($_SESSION["usuario"]) || empty($_SESSION["senha"])){
         header("location: login.php");
     }
     $_SESSION["pr"];
     $_SESSION['email'];
     $_SESSION['id'];
+    $_SESSION["descricao"];
+    $_SESSION['foto'];
     require("../templates/header.php");
     include("../include/mysqli.php");
     $usuarioErro = "";
@@ -16,6 +17,9 @@
     $email = "";
     $usuario = "";
     $descricao = "";
+    $senha = "";
+    $senhaErro = "";
+    $pr = "";
     $id = $_SESSION["id"];
     if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["alterar"])){
         if(!empty($_POST["id"])){
@@ -33,29 +37,46 @@
         else{
             $email = $_POST["email"];
         }
+        if(empty($_POST["senha"])){
+            $senhaErro = "Campo obrigatório";
+        }
+        else{
+            $senha = $_POST["senha"];
+        }
         if(empty($_POST["descricao"])){
 
         }
         else{
             $descricao = $_POST["descricao"];
         }
+        if(empty($_POST["pr"])){
+            $pr = false;
+        }
+        else{
+            $pr = true;
+        }
     }
-    if($usuario && $email && isset($_POST["alterar"])){
-        $sql = $pdo->prepare("SELECT * FROM usuario WHERE id <> ? AND nome = ?");
+    if($usuario && $email && $senha && isset($_POST["alterar"])){
+        $sql = $pdo->prepare("SELECT * FROM usuario WHERE id_user <> ? AND nome = ?");
         if($sql->execute(array($id, $usuario))){
             if($sql->rowCount() > 0){
                 $usuarioErro = "Este usuário já existe";
             }
             else{
-                $sql = $pdo->prepare("SELECT * FROM usuario WHERE email = ?");
-                if($sql->execute(array($email))){
+                $sql = $pdo->prepare("SELECT * FROM usuario WHERE email = ? AND id_user <> ?");
+                if($sql->execute(array($email, $id))){
                     if($sql->rowCount() > 0){
                         $emailErro = "Este e-mail já foi cadastrado";
                     }
                     else{
-                        $sql = $pdo->prepare("UPDATE usuario SET nome = ?, email = ?, descricao = ? WHERE id = ?");
-                        if($sql->execute(array($usuario, $email, $descricao, $id))){
-                            header("LOCATION: login.php");
+                        $sql = $pdo->prepare("UPDATE usuario SET nome = ?, email = ?, senha = ?, pr = ?, descricao = ? WHERE id_user = ?");
+                        if($sql->execute(array($usuario, $email, md5($senha), $pr,$descricao, $id))){
+                            $_SESSION["usuario"] = $usuario;
+                            $_SESSION['email'] = $email;
+                            $_SESSION["senha"] = $senha;
+                            $_SESSION["descricao"] = $descricao;
+                            $_SESSION["pr"] = $pr;
+                            header("LOCATION: conta.php");
                         }
                     }
                 }
@@ -104,25 +125,30 @@
                         echo "Olá, ".$_SESSION['usuario']."<br>";
                     ?>
                     <label>Novo nome: </label>
-                    <input type="text" name="usuario" maxlength="125" class="formInput"><br>
+                    <input type="text" name="usuario" maxlength="125"  value="<?php echo $_SESSION["usuario"]; ?>" class="formInput"><br>
                     <span class="spanErro"><?php echo $usuarioErro; ?></span><br>
-                    <?php
-                        if($_SESSION["pr"] == 1){
-                        echo "Programador";
-                        }
-                    ?>
+                    <label>Programador: </label>
+                    <input type="checkbox" name="pr" class="formInput"><br>
                 </p>
                 <p>
                     <?php
                         echo "E-mail: ".$_SESSION['email']."<br>";
                     ?>
                     <label>Novo e-mail: </label>
-                    <input type="email" name="email" maxlength="125" class="formInput"><br>
+                    <input type="email" name="email" maxlength="125" value="<?php echo $_SESSION["email"]; ?>" class="formInput"><br>
                     <span class="spanErro"><?php echo $emailErro; ?></span><br>
                 </p>
                 <p>
+                <?php
+                    echo "Senha: ***********************<br>";
+                ?>
+                    <label>Nova senha: </label>
+                    <input type="password" name="senha" maxlength="125" class="formInput"><br>
+                    <span class="spanErro"><?php echo $senhaErro; ?></span><br>
+                </p>
+                <p>
                     Descrição do perfiil<br>
-                    <textarea class="descricao" name="descricao" value="<?php echo $_SESSION["descricao"]; ?>" maxlength="1000"></textarea>
+                    <textarea class="descricao" name="descricao" value="" maxlength="1000"><?php echo addslashes($_SESSION["descricao"]);?></textarea>
                 </p>
                 <input type="submit" value="salvar" name="alterar" class="btn"><br><br>
                 <a href="conta.php"><b class="voltar"><<</b> Voltar</a>

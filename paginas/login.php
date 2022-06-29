@@ -43,7 +43,7 @@
                     $_SESSION['email'] = $values["email"];
                     $_SESSION['foto'] = $values["foto"];
                     $_SESSION['descricao'] = $values["descricao"];
-                    $_SESSION['id'] = $values["id"];
+                    $_SESSION['id'] = $values["id_user"];
                 }
             if($sql->rowCount() > 0){
                 header("location: home.php");

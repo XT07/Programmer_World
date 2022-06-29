@@ -46,8 +46,13 @@
             <p>
                 <?php
                     echo "Olá, ".$_SESSION['usuario']."<br>";
-                    if($_SESSION["pr"] == 1){
-                    echo "Programador";
+                    if($_SESSION['pr'] == 1){
+                        $programador = "Sim";
+                        echo "Programador: ".$programador;
+                    }
+                    else{
+                        $programador = "Não";
+                        echo "Programador: ".$programador;
                     }
                 ?>
             </p>
@@ -56,14 +61,16 @@
                     echo "E-mail: ".$_SESSION['email']."<br>";
                 ?>
             </p>
-            <?php
-                if(empty($_SESSION["descicao"])){
-
-                }
-                else{
-                    echo $_SESSION["descricao"];
-                }
-            ?>
+            <p>
+                <?php
+                    echo "Senha: ***********************<br>";
+                ?>
+            </p>
+            <p>
+                Descrição do perfiil<br>
+                <textarea class="descricao" name="descricao" value="" maxlength="1000" readonly><?php echo addslashes($_SESSION["descricao"]); ?>
+                </textarea>
+            </p>
             <p><a href="editPerfil.php" class="aPerfil">Editar perfil</a></p>
         </div>
         <ul class="contaUl">
