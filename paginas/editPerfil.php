@@ -10,6 +10,7 @@
     $_SESSION['id'];
     $_SESSION["descricao"];
     $_SESSION['foto'];
+    $_SESSION["senhaDescrip"];
     require("../templates/header.php");
     include("../include/mysqli.php");
     $usuarioErro = "";
@@ -143,7 +144,7 @@
                     echo "Senha: ***********************<br>";
                 ?>
                     <label>Nova senha: </label>
-                    <input type="password" name="senha" maxlength="125" class="formInput"><br>
+                    <input type="password" name="senha" maxlength="125" class="formInput" value="<?php echo $_SESSION["senhaDescrip"];?>"><br>
                     <span class="spanErro"><?php echo $senhaErro; ?></span><br>
                 </p>
                 <p>
