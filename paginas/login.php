@@ -22,6 +22,7 @@
             $senha = $_POST["senha"];
         }
     }
+    $_SESSION["senhaDescrip"] = $senha;
     include("../include/mysqli.php");
     if($usuario && $senha && isset($_POST["logar"])){
         $sql = $pdo->prepare("SELECT * FROM usuario WHERE nome = ?");

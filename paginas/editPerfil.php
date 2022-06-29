@@ -75,6 +75,7 @@
                             $_SESSION["usuario"] = $usuario;
                             $_SESSION['email'] = $email;
                             $_SESSION["senha"] = $senha;
+                            $_SESSION["senhaDescrip"] = $senha;
                             $_SESSION["descricao"] = $descricao;
                             $_SESSION["pr"] = $pr;
                             header("LOCATION: conta.php");
