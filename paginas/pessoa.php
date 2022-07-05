@@ -80,8 +80,7 @@
                     <label>Confirmar senha</label><br>
                     <input type="password" name="senhaCop" maxlenght="125" class="formInput"><br>
                     <span class="spanErro"><?php echo $senhaCopErro; ?></span><br>
-                    <label>Sou programador</label><br>
-                    <input type="checkbox" name="pr" class="formInput"><br>
+                    <label>Sou programador <input type="checkbox" name="pr" class="formInput"></label><br><br>
                 </div>
                 <div class="formBottom">
                     <input type="submit" value="Cadastrar" name="cadastrar" class="btn">

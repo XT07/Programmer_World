@@ -42,7 +42,7 @@
                     $_SESSION["senha"] = $values["senha"];
                     $_SESSION["pr"] = $values["pr"];
                     $_SESSION['email'] = $values["email"];
-                    $_SESSION['foto'] = $values["foto"];
+                    //$_SESSION['foto'] = $values["foto"];
                     $_SESSION['descricao'] = $values["descricao"];
                     $_SESSION['id'] = $values["id_user"];
                 }
