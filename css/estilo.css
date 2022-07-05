@@ -30,7 +30,7 @@ fieldset{
     border-color: #1E90FF;
     margin: 0 auto;
     margin-top: 20px;
-    width: 20%;
+    width: 400px;
 }
 a{
     color: white;
@@ -61,7 +61,7 @@ footer{
 footer hr{
     border: none;
     border-top: 2px solid #1E90FF;
-    width: 35%;
+    width: 550px;
     margin-top: 20px;
 }
 footer img {
@@ -104,7 +104,7 @@ footer img {
     margin-left: 25%;
     padding-left: 20px;
     padding-right: 40px;
-    width: 50%;
+    width: 800px;
     border-left: 2px solid #1E90FF;
     border-right: 2px solid #1E90FF;
 }
@@ -153,6 +153,31 @@ footer img {
     border: 2px solid #1E90FF;
     outline: none;
     color: white;
+}
+@media(max-width: 1500px){
+    fieldset{
+        width: 25%;
+    }
+    footer hr{
+        width: 35%;
+    }
+    .container{
+        width: 55%;
+    }
+}
+@media(max-width: 1400px){
+    .container{
+        width: 750px;
+        margin-left: 25%;
+    }
+}
+@media(max-width: 1000px){
+    fieldset{
+        width: 300px;
+    }
+    footer hr{
+        width: 400px;
+    }
 }
 /*menu*/
 .imgMenu{

@@ -39,13 +39,13 @@
         <div class="info">
             <ul class="ulFoto">
                 <li>
-                    <img src="../img/perfil.jpg" class="perfilFoto"><br>
+                    <img src="<?php echo $_SESSION["foto"]; ?>" class="perfilFoto"><br>
                 </li>
             </ul>
             <h1>Perfil</h1>
             <p>
                 <?php
-                    echo "Olá, ".$_SESSION['usuario']."<br>";
+                    echo "Olá, ".$_SESSION['usuario']."<br><br>";
                     if($_SESSION['pr'] == 1){
                         $programador = "Sim";
                         echo "Programador: ".$programador;

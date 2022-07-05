@@ -21,6 +21,7 @@
     $senhaErro = "";
     $pr = "";
     $id = $_SESSION["id"];
+    $imgContent = "";
     if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["alterar"])){
         if(!empty($_POST["id"])){
             $id = $_POST["id"];
@@ -56,7 +57,16 @@
             $pr = true;
         }
     }
-    if($usuario && $email && $senha && isset($_POST["alterar"])){
+    if(isset($_POST["alterar"])){
+        $fileName = basename($_FILES["img"]["name"]);
+        $fileType = pathinfo($fileName, PATHINFO_EXTENSION);
+        $allowTypes = array("jpg","png","jpeg","gif");
+        if(in_array($fileType, $allowTypes)){
+            $image = $_FILES["image"]["tmp_name"];
+            $imgContent = file_get_contents($image);
+        }
+    }
+    if($usuario && $email && $senha && $imgContent && isset($_POST["alterar"])){
         $sql = $pdo->prepare("SELECT * FROM usuario WHERE id_user <> ? AND nome = ?");
         if($sql->execute(array($id, $usuario))){
             if($sql->rowCount() > 0){
@@ -69,8 +79,8 @@
                         $emailErro = "Este e-mail já foi cadastrado";
                     }
                     else{
-                        $sql = $pdo->prepare("UPDATE usuario SET nome = ?, email = ?, senha = ?, pr = ?, descricao = ? WHERE id_user = ?");
-                        if($sql->execute(array($usuario, $email, md5($senha), $pr,$descricao, $id))){
+                        $sql = $pdo->prepare("UPDATE usuario SET nome = ?, email = ?, senha = ?, pr = ?, foto = ?, descricao = ? WHERE id_user = ?");
+                        if($sql->execute(array($usuario, $email, md5($senha), $pr, $$imgContent, $descricao, $id))){
                             $_SESSION["usuario"] = $usuario;
                             $_SESSION['email'] = $email;
                             $_SESSION["senha"] = $senha;
@@ -113,10 +123,11 @@
             <div class="info">
                 <ul class="ulFoto">
                     <li>
-                        <img src="../img/perfil.jpg" class="perfilFoto"><br>
+                        <img src="<?php echo $_SESSION["foto"]; ?>" class="perfilFoto"><br>
                     </li>
                     <li>
-                        <label class="lFoto">Mudar foto</label>
+                        <label>Mudar foto de perfil</label><br>
+                        <input type="file" name="img">
                     </li>
                 </ul>
                 <h1>Perfil</h1>
@@ -124,7 +135,7 @@
                     <?php
                         echo "Olá, ".$_SESSION['usuario']."<br>";
                     ?>
-                    <label>Novo nome: </label>
+                    <label>Novo nome: </label><br>
                     <input type="text" name="usuario" maxlength="125"  value="<?php echo $_SESSION["usuario"]; ?>" class="formInput"><br>
                     <span class="spanErro"><?php echo $usuarioErro; ?></span><br>
                     <label>Programador: </label>
@@ -134,7 +145,7 @@
                     <?php
                         echo "E-mail: ".$_SESSION['email']."<br>";
                     ?>
-                    <label>Novo e-mail: </label>
+                    <label>Novo e-mail: </label><br>
                     <input type="email" name="email" maxlength="125" value="<?php echo $_SESSION["email"]; ?>" class="formInput"><br>
                     <span class="spanErro"><?php echo $emailErro; ?></span><br>
                 </p>
@@ -142,8 +153,8 @@
                 <?php
                     echo "Senha: ***********************<br>";
                 ?>
-                    <label>Nova senha: </label>
-                    <input type="password" name="senha" maxlength="125" class="formInput"><br>
+                    <label>Nova senha: </label><br>
+                    <input type="password" name="senha" value="<?php echo $_SESSION["senha"]; ?>" maxlength="125" class="formInput"><br>
                     <span class="spanErro"><?php echo $senhaErro; ?></span><br>
                 </p>
                 <p>

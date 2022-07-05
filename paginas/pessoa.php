@@ -62,32 +62,34 @@
     }
 ?>
 <body>
-    <form action="" method="POST" class="formLog">
-        <fieldset>
-            <div class="formTop">
-                <h2>Cadastro</h2>
-                <p>Tem login ? <a href="login.php">Faça login aqui</a></p>
-                <label>Usuario</label><br>
-                <input type="text" name="usuario" maxlenght="125" class="formInput"><br>
-                <span class="spanErro"><?php echo $usuarioErro; ?></span><br>
-                <label>E-mail</label><br>
-                <input type="email" name="email" maxlength="125" class="formInput"><br>
-                <span class="spanErro"><?php echo $emailErro; ?></span><br>
-                <label>Senha</label><br>
-                <input type="password" name="senha" maxlenght="125" class="formInput"><br>
-                <span class="spanErro"><?php echo $senhaErro; ?></span><br>
-                <label>Confirmar senha</label><br>
-                <input type="password" name="senhaCop" maxlenght="125" class="formInput"><br>
-                <span class="spanErro"><?php echo $senhaCopErro; ?></span><br>
-                <label>Sou programador</label><br>
-                <input type="checkbox" name="pr" class="formInput"><br>
-            </div>
-            <div class="formBottom">
-                <input type="submit" value="Cadastrar" name="cadastrar" class="btn">
-            </div>
-            <a href="login.php"><b class="voltar"><<</b> Voltar</a>
-        </fieldset>
-    </form>
+    <div class="containerForm">
+        <form action="" method="POST" class="formLog">
+            <fieldset>
+                <div class="formTop">
+                    <h2>Cadastro</h2>
+                    <p>Tem login ? <a href="login.php">Faça login aqui</a></p>
+                    <label>Usuario</label><br>
+                    <input type="text" name="usuario" maxlenght="125" class="formInput"><br>
+                    <span class="spanErro"><?php echo $usuarioErro; ?></span><br>
+                    <label>E-mail</label><br>
+                    <input type="email" name="email" maxlength="125" class="formInput"><br>
+                    <span class="spanErro"><?php echo $emailErro; ?></span><br>
+                    <label>Senha</label><br>
+                    <input type="password" name="senha" maxlenght="125" class="formInput"><br>
+                    <span class="spanErro"><?php echo $senhaErro; ?></span><br>
+                    <label>Confirmar senha</label><br>
+                    <input type="password" name="senhaCop" maxlenght="125" class="formInput"><br>
+                    <span class="spanErro"><?php echo $senhaCopErro; ?></span><br>
+                    <label>Sou programador</label><br>
+                    <input type="checkbox" name="pr" class="formInput"><br>
+                </div>
+                <div class="formBottom">
+                    <input type="submit" value="Cadastrar" name="cadastrar" class="btn">
+                </div>
+                <a href="login.php"><b class="voltar"><<</b> Voltar</a>
+            </fieldset>
+        </form>
+    </div>
 </body>
 <?php
     require("../templates/footer.php");
