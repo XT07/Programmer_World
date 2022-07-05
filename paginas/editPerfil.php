@@ -10,6 +10,7 @@
     $_SESSION['id'];
     $_SESSION["descricao"];
     $_SESSION['foto'];
+    $_SESSION["senhaDescrip"];
     require("../templates/header.php");
     include("../include/mysqli.php");
     $usuarioErro = "";
@@ -84,6 +85,7 @@
                             $_SESSION["usuario"] = $usuario;
                             $_SESSION['email'] = $email;
                             $_SESSION["senha"] = $senha;
+                            $_SESSION["senhaDescrip"] = $senha;
                             $_SESSION["descricao"] = $descricao;
                             $_SESSION["pr"] = $pr;
                             header("LOCATION: conta.php");
@@ -153,8 +155,13 @@
                 <?php
                     echo "Senha: ***********************<br>";
                 ?>
+<<<<<<< HEAD
                     <label>Nova senha: </label><br>
                     <input type="password" name="senha" value="<?php echo $_SESSION["senha"]; ?>" maxlength="125" class="formInput"><br>
+=======
+                    <label>Nova senha: </label>
+                    <input type="password" name="senha" maxlength="125" class="formInput" value="<?php echo $_SESSION["senhaDescrip"];?>"><br>
+>>>>>>> e104484be99c99aca9297b4bb00c0c2148cdbd31
                     <span class="spanErro"><?php echo $senhaErro; ?></span><br>
                 </p>
                 <p>
