@@ -19,7 +19,7 @@
     <div class="navMenu">
         <ul class="ulMenu">
             <li class="liMenu">
-                <a href='log-out.php' class="aMenu">Amigos</a>
+                <a href='amigos.php' class="aMenu">Amigos</a>
             </li>
             <li class="liMenu">
                 <a href='log-out.php' class="aMenu">Chat</a>

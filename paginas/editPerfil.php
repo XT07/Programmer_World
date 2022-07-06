@@ -103,6 +103,8 @@
         $prOk = "checked";
     }
     $confirm = "";
+    $senhaConfErro = "";
+    $senhaConf = "";
     if(isset($_POST["confirm"])){
         $confirm = "Insira a sua senha: <input type='password' name='senhaConf' class='formInput'>
         <br>
@@ -110,11 +112,26 @@
         <input type='submit' name='delete' class='btn' value='Confirmar'> ||| <a href=''>Cancelar</a>
         ";
     }
-    if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["delete"])){
+    if(isset($_POST["delete"])){
         if(empty($_POST["senhaConf"])){
             $senhaConfErro = "Insira a senha";
         }
+        else{
+            $senhaConf = $_POST["senhaConf"];
+        }
     }
+    if($senhaConf && isset($_POST["delete"])){
+        $sql = $pdo->prepare("SELECT * FROM usuario WHERE senha = ? AND id_user = ?");
+        if($sql->execute(array(md5($senhaConf), $id))){
+            if($sql->rowCount() > 0){
+                header("location: deletar-conta.php");
+            }
+            else{
+                $senhaConfErro = "Senha inválida";
+            }
+        }
+    }
+
 ?>
 <body style="margin: 0; padding: 0;">
     <input type="checkbox" id="menu" class="checkMenu">
@@ -124,7 +141,7 @@
     <div class="navMenu">
         <ul class="ulMenu">
             <li class="liMenu">
-                <a href='log-out.php' class="aMenu">Amigos</a>
+                <a href='amigos.php' class="aMenu">Amigos</a>
             </li>
             <li class="liMenu">
                 <a href='log-out.php' class="aMenu">Chat</a>
@@ -184,7 +201,8 @@
                     <textarea class="descricao" name="descricao" value="" maxlength="1000"><?php echo addslashes($_SESSION["descricao"]);?></textarea>
                 </p>
                 <input type="submit" value="Deletar conta" name="confirm" class="btn">
-                <span><?php echo $confirm; ?></span><br><br>
+                <span><?php echo $confirm; ?></span><br>
+                <span class="spanErro"><?php echo $senhaConfErro; ?></span><br><br>
                 <input type="submit" value="salvar" name="alterar" class="btn"><br><br>
                 <a href="conta.php"><b class="voltar"><<</b> Voltar</a>
             </div>
