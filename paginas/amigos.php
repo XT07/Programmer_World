@@ -14,7 +14,7 @@
     $pesq = "";
     $nomePesq = "";
     $desPesq = "";
-    $moPesq = "";
+    $mPesq = "";
     if(empty($_POST["pesq"])){
         
     }
@@ -72,24 +72,12 @@
         <br>
         <div class="respPesq">
             <?php
-                if($moPesq = 1){
-                    echo "<table class='resp'>";
-                    echo "<tbody>";
-                    echo "<tr class='linha'>";
-                    echo "<td class='mResp'>";
-                    echo $nomePesq;
-                    echo "</td>";
-                    echo "<td class='mResp'>";
-                    echo $desPesq;
-                    echo "</td>";
-                    echo "<td>";
-                    echo "<input type='button' name='verPerfil' class='btn' value='Ver perfil'>";
-                    echo "</td>";
-                    echo "</tr>";
-                    echo "</tbody>";
-                    echo "</table>";
+                if(isset($_POST["pesq"]) && !empty($nomePesq) || !empty($desPesq)){
+                    $mPesq = 1;
                 }
+                if($mPesq = 1){}
             ?>
+
         </div>
     </div>
 </body>
