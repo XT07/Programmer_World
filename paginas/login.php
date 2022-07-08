@@ -31,7 +31,7 @@
 
             }
             else{
-                $usuarioErro = "Este usuario não existe";
+                $emailErro = "Este e-mail não está cadastrado";
             }
         }
         $sql = $pdo->prepare("SELECT * FROM usuario WHERE senha = ? AND nome = ?");
@@ -61,7 +61,7 @@
             <div class="formTop">
                 <h2>Login</h2>
                 <p>Não tem login ? <a href="pessoa.php">Cadastre-se</a></p>
-                <label>Usuário</label><br>
+                <label>Usuario</label><br>
                 <input type="text" name="usuario" maxlength="100" class="formInput"><br>
                 <span class="spanErro"><?php echo $usuarioErro; ?></span><br>
                 <label>Senha</label><br>

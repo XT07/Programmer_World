@@ -47,6 +47,18 @@ a{
     border-radius: 15px;
     cursor: pointer;
 }
+.btnT{
+    float: right;
+    background: none;
+    border: solid 1px #1E90FF;
+    color: white;
+    font-size: 20px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 15px;
+    cursor: pointer;
+}
 .linha{
     border: none;
     border-top: 2px solid #1E90FF;
@@ -188,6 +200,14 @@ footer img {
 }
 .resp tbody {
     text-align: center;
+}
+.nomePesq{
+    float: left;
+    padding-top: 40px;
+}
+.nomePesqDes{
+    float: right;
+    padding-top: 40px;
 }
 @media(max-width: 1500px){
     fieldset{

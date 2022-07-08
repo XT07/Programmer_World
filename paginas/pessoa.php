@@ -43,20 +43,12 @@
         $sql = $pdo->prepare("SELECT * FROM usuario WHERE nome = ?");
         if($sql->execute(array($usuario))){
             if($sql->rowCount() > 0){
-                $usuarioErro = "Este usuário já existe";
+                $emailErro = "Este usuário já foi cadastrado";
             }
             else{
-                $sql = $pdo->prepare("SELECT * FROM usuario WHERE email = ?");
-                if($sql->execute(array($email))){
-                    if($sql->rowCount() > 0){
-                        $emailErro = "Este e-mail já foi cadastrado";
-                    }
-                    else{
-                        $sql = $pdo->prepare("INSERT INTO usuario VALUES (null, ?, ?, ?, ?, null, null)");
-                        if($sql->execute(array($usuario, $email, md5($senha), $pr))){}
-                        header("LOCATION: login.php");
-                    }
-                }
+                $sql = $pdo->prepare("INSERT INTO usuario VALUES (null, ?, ?, ?, ?, null, null)");
+                if($sql->execute(array($usuario, $email, md5($senha), $pr))){}
+                header("LOCATION: login.php");
             }
         }
     }

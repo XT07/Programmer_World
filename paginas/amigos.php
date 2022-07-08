@@ -14,28 +14,7 @@
     $pesq = "";
     $nomePesq = "";
     $desPesq = "";
-    $mPesq = "";
-    if(empty($_POST["pesq"])){
-        
-    }
-    else{
-        $pesq = $_POST["pesq"];
-        $sql = $pdo->prepare("SELECT * FROM usuario WHERE nome = ?");
-        if($sql->execute(array($pesq))){
-            if($sql->rowCount() > 0){
-                $info = $sql->fetchAll(PDO::FETCH_ASSOC);
-                foreach($info as $key => $values){
-                    $nomePesq = $values["nome"];
-                    $desPesq = $values["descricao"];
-                    $pesq = "";
-                    $moPesq = 1;
-                }
-            }
-            else{
-                $pesq = "Nenhum resultado para: ".$_POST["pesq"];
-            }
-        }
-    }
+    $moPesq = "";
 ?>
 <body style="margin: 0; padding: 0;">
     <input type="checkbox" id="menu" class="checkMenu">
@@ -63,6 +42,7 @@
     </div>
     <div class="containerPesq">
         <form action="" method="POST">
+            <h2>Procurar usuário</h2>
             <input type="text" name="pesq" class="pesq" placeholder="Pesquisar...">
         </form>
         <?php
@@ -72,12 +52,43 @@
         <br>
         <div class="respPesq">
             <?php
-                if(isset($_POST["pesq"]) && !empty($nomePesq) || !empty($desPesq)){
-                    $mPesq = 1;
+            $pr = "Usuário";
+                if(empty($_POST["pesq"])){
+        
                 }
-                if($mPesq = 1){}
+                else{
+                    $pesq = $_POST["pesq"];
+                    $sql = $pdo->prepare("SELECT * FROM usuario WHERE nome = ?");
+                    if($sql->execute(array($pesq))){
+                        if($sql->rowCount() > 0){
+                            $info = $sql->fetchAll(PDO::FETCH_ASSOC);
+                            foreach($info as $key => $values){
+                                if($values["pr"] == 1){
+                                    $pr = "Programador";
+                                }
+                                echo "<table class='resp'>";
+                                echo "<tbody>";
+                                echo "<tr class='linha'>";
+                                echo "<td class='mResp'>";
+                                echo "<label class='nomePesq'>".$values['nome']."</label>";
+                                echo "</td>";
+                                echo "<td class='mResp'>";
+                                echo "<label class='nomePesqDes' maxlength='50'>".$pr."</label>";
+                                echo "</td>";
+                                echo "<td>";
+                                echo "<input type='button' name='verPerfil' class='btnT' value='Ver perfil'>";
+                                echo "</td>";
+                                echo "</tr>";
+                                echo "</tbody>";
+                                echo "</table>";
+                            }
+                        }
+                        else{
+                            echo "Nenhum resultado para: ".$_POST["pesq"];
+                        }
+                    }
+                }
             ?>
-
         </div>
     </div>
 </body>
