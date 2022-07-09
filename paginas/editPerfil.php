@@ -215,4 +215,46 @@
             </ul>
         </div>
     </form>
+    <div class="animacao">
+            <div class="boxAn"></div>
+            <br>
+            <br>
+            <br>
+            <div class="boxAnRi"></div>
+            <br>
+            <br>
+            <br>
+            <div class="boxAn"></div>
+            <br>
+            <br>
+            <br>
+            <div class="boxAnRi"></div>
+            <br>
+            <br>
+            <br>
+            <div class="boxAn"></div>
+            <br>
+            <br>
+            <div class="boxAnRi"></div>
+            <br>
+            <br>
+            <br>
+            <div class="boxAn"></div>
+            <br>
+            <br>
+            <br>
+            <div class="boxAnRi"></div>
+            <br>
+            <br>
+            <br>
+            <div class="boxAn"></div>
+            <br>
+            <br>
+            <br>
+            <div class="boxAnRi"></div>
+            <br>
+            <br>
+            <br>
+            <div class="boxAn"></div>
+    </div>
 </body>

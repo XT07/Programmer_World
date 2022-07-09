@@ -81,4 +81,46 @@
             <li><a href="log-out.php">Encerrar sessão</a></li>
         </ul>
     </div>
+    <div class="animacao">
+            <div class="boxAn"></div>
+            <br>
+            <br>
+            <br>
+            <div class="boxAnRi"></div>
+            <br>
+            <br>
+            <br>
+            <div class="boxAn"></div>
+            <br>
+            <br>
+            <br>
+            <div class="boxAnRi"></div>
+            <br>
+            <br>
+            <br>
+            <div class="boxAn"></div>
+            <br>
+            <br>
+            <div class="boxAnRi"></div>
+            <br>
+            <br>
+            <br>
+            <div class="boxAn"></div>
+            <br>
+            <br>
+            <br>
+            <div class="boxAnRi"></div>
+            <br>
+            <br>
+            <br>
+            <div class="boxAn"></div>
+            <br>
+            <br>
+            <br>
+            <div class="boxAnRi"></div>
+            <br>
+            <br>
+            <br>
+            <div class="boxAn"></div>
+    </div>
 </body>

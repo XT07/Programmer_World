@@ -209,6 +209,75 @@ footer img {
     float: right;
     padding-top: 40px;
 }
+.animacao{
+    float: right;
+    width: 545px;
+    height: 100%;
+    position: absolute;
+    margin-left: 71%;
+}
+.boxAn{
+    width: 300px;
+    height: 25px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background-color: #1E90FF;
+    animation-name: animacao;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+}
+.boxAnRi{
+    width: 300px;
+    height: 30px;
+    margin-left: 240px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    background-color: #1E90FF;
+    animation-name: animacao2;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+}
+@keyframes animacao{
+    0%{
+    }
+    25%{
+        transform: translateY(-400%);
+        width: 230px;
+    }
+    50%{
+        transform: translateY(-400%);
+        width: 300px;
+    }
+    75%{
+        transform: translateY(0%);
+        width: 230px;
+    }
+    100%{
+        transform: translateY(0%);
+    }
+}
+@keyframes animacao2{
+    0%{
+    }
+    25%{
+        transform: translateY(300%);
+        width: 230px;
+        margin-left: 310px;
+    }
+    50%{
+        transform: translateY(300%);
+        width: 300px;
+        margin-left: 240px;
+    }
+    75%{
+        width: 230px;
+        margin-left: 310px;
+    }
+    100%{
+        width: 300px;
+        transform: translateY(-0%);
+    }
+}
 @media(max-width: 1500px){
     fieldset{
         width: 25%;
