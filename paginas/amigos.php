@@ -41,7 +41,7 @@
         </ul>
     </div>
     <div class="containerPesq">
-        <form action="" method="POST">
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="POST">
             <h2>Procurar usuário</h2>
             <input type="text" name="pesq" class="pesq" placeholder="Pesquisar...">
         </form>
@@ -53,11 +53,11 @@
         <div class="respPesq">
             <?php
             $pr = "Usuário";
-                if(empty($_POST["pesq"])){
+                if(empty(tI($_POST["pesq"]))){
         
                 }
                 else{
-                    $pesq = $_POST["pesq"];
+                    $pesq = tI($_POST["pesq"]);
                     $sql = $pdo->prepare("SELECT * FROM usuario WHERE nome = ?");
                     if($sql->execute(array($pesq))){
                         if($sql->rowCount() > 0){
@@ -84,7 +84,7 @@
                             }
                         }
                         else{
-                            echo "Nenhum resultado para: ".$_POST["pesq"];
+                            echo "Nenhum resultado para: ".tI($_POST["pesq"]);
                         }
                     }
                 }

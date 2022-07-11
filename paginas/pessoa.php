@@ -7,29 +7,29 @@
     $senhaCopErro = "";
     $pr = "";
     if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["cadastrar"])){
-        if(empty($_POST["usuario"])){
+        if(empty(tI($_POST["usuario"]))){
             $usuarioErro = "Campo obrigatório";
         }
         else{
-            $usuario = $_POST["usuario"];
+            $usuario = tI($_POST["usuario"]);
         }
-        if(empty($_POST["email"])){
+        if(empty(tI($_POST["email"]))){
             $emailErro = "Campo obrigatório";
         }
         else{
-            $email = $_POST["email"];
+            $email = tI($_POST["email"]);
         }
-        if(empty($_POST["senha"])){
+        if(empty(tI($_POST["senha"]))){
             $senhaErro = "Campo obrigatório";
         }
         else{
-            $senha = $_POST["senha"];
+            $senha = tI($_POST["senha"]);
         }
-        if($_POST["senhaCop"] != $senha){
+        if(tI($_POST["senhaCop"]) != $senha){
             $senhaCopErro = "As duas senha precisam ser iguais";
         }
         else{
-            $senha = $_POST["senhaCop"];
+            $senha = tI($_POST["senhaCop"]);
         }
         if(empty($_POST["pr"])){
             $pr = false;
@@ -55,7 +55,7 @@
 ?>
 <body>
     <div class="containerForm">
-        <form action="" method="POST" class="formLog">
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="POST" class="formLog">
             <fieldset>
                 <div class="formTop">
                     <h2>Cadastro</h2>

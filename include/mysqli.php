@@ -10,4 +10,11 @@
     }catch(Exception $e){
         echo "erro";
     }
+
+    function tI($data){
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
 ?>

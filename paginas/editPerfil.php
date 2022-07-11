@@ -31,25 +31,25 @@
             $usuarioErro = "Campo obrigatório";
         }
         else{
-            $usuario = $_POST["usuario"];
+            $usuario = tI($_POST["usuario"]);
         }
-        if(empty($_POST["email"])){
+        if(empty(tI($_POST["email"]))){
             $emailErro = "Campo obrigatório";
         }
         else{
-            $email = $_POST["email"];
+            $email = tI($_POST["email"]);
         }
         if(empty($_POST["senha"])){
             $senhaErro = "Campo obrigatório";
         }
         else{
-            $senha = $_POST["senha"];
+            $senha = tI($_POST["senha"]);
         }
-        if(empty($_POST["descricao"])){
+        if(empty(tI($_POST["descricao"]))){
 
         }
         else{
-            $descricao = $_POST["descricao"];
+            $descricao = tI($_POST["descricao"]);
         }
         if(empty($_POST["pr"])){
             $pr = false;
@@ -157,7 +157,7 @@
             </li>
         </ul>
     </div>
-    <form action="" method="POST" enctype="multipart/form-data">
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="POST" enctype="multipart/form-data">
         <div class="container">
             <div class="info">
                 <ul class="ulFoto">

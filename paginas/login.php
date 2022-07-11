@@ -9,17 +9,17 @@
     $usuarioErro = $usuario = "";
     $senhaErro = $senha = "";
     if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["logar"])){
-        if(empty($_POST["usuario"])){
+        if(empty(tI($_POST["usuario"]))){
             $usuarioErro = "Campo obrigatório";
         }
         else{
-            $usuario = $_POST["usuario"];
+            $usuario = tI($_POST["usuario"]);
         }
-        if(empty($_POST["senha"])){
+        if(empty(tI($_POST["senha"]))){
             $senhaErro = "Campo obrigatório";
         }
         else{
-            $senha = $_POST["senha"];
+            $senha = tI($_POST["senha"]);
         }
     }
     $_SESSION["senhaDescrip"] = $senha;
@@ -56,7 +56,7 @@
     }
 ?>
 <body>
-    <form action="" method="post">
+    <form action="<?php echo htmlspecialchars($_SEVER["PHP_SELF"]) ?>" method="post">
         <fieldset>
             <div class="formTop">
                 <h2>Login</h2>
