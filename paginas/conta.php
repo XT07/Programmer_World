@@ -39,7 +39,7 @@
         <div class="info">
             <ul class="ulFoto">
                 <li>
-                    <img src="<?php echo $_SESSION["foto"]; ?>" class="perfilFoto"><br>
+                    <?php echo '<img src="data:image/jpg;charset=utf8;base64,'.base64_encode($_SESSION["foto"]).'" class="perfilFoto">' ?><br>
                 </li>
             </ul>
             <h1>Perfil</h1>

@@ -6,6 +6,7 @@
     $_SESSION['foto'] = "";
     $_SESSION['descricao'] = "";
     require("../templates/header.php");
+    include("../include/mysqli.php");
     $usuarioErro = $usuario = "";
     $senhaErro = $senha = "";
     if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["logar"])){
@@ -23,7 +24,6 @@
         }
     }
     $_SESSION["senhaDescrip"] = $senha;
-    include("../include/mysqli.php");
     if($usuario && $senha && isset($_POST["logar"])){
         $sql = $pdo->prepare("SELECT * FROM usuario WHERE nome = ?");
         if($sql->execute(array($usuario))){
@@ -42,7 +42,7 @@
                     $_SESSION["senha"] = $values["senha"];
                     $_SESSION["pr"] = $values["pr"];
                     $_SESSION['email'] = $values["email"];
-                    //$_SESSION['foto'] = $values["foto"];
+                    $_SESSION['foto'] = $values["foto"];
                     $_SESSION['descricao'] = $values["descricao"];
                     $_SESSION['id'] = $values["id_user"];
                 }
@@ -56,7 +56,7 @@
     }
 ?>
 <body>
-    <form action="<?php echo htmlspecialchars($_SEVER["PHP_SELF"]) ?>" method="post">
+    <form action="  " method="post">
         <fieldset>
             <div class="formTop">
                 <h2>Login</h2>

@@ -58,15 +58,14 @@
             $pr = true;
         }
     }
+    if()
     if(isset($_POST["alterar"])){
         $fileName = basename($_FILES["img"]["name"]);
         $fileType = pathinfo($fileName, PATHINFO_EXTENSION);
         $allowTypes = array("jpg","png","jpeg","gif");
-        $diretorio = "img/";
         if(in_array($fileType, $allowTypes)){
             $image = $_FILES["img"]["tmp_name"];
             $imgContent = file_get_contents($image);
-            move_uploaded_file($_FILES["image"]["tmp_name"], $diretorio);
         }
     }
     if($usuario && $email && $senha && isset($_POST["alterar"])){
@@ -162,7 +161,7 @@
             <div class="info">
                 <ul class="ulFoto">
                     <li>
-                        <img src="<?php echo $_SESSION["foto"]; ?>" class="perfil">
+                        <?php echo '<img src="data:image/jpg;charset=utf8;base64,'.base64_encode($_SESSION["foto"]).'" class="perfilFoto">' ?>
                     </li>
                     <li>
                         <label>Mudar foto de perfil</label><br>

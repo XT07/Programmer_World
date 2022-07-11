@@ -53,8 +53,8 @@
         <div class="respPesq">
             <?php
             $pr = "Usuário";
-                if(empty(tI($_POST["pesq"]))){
-        
+                if(empty($_POST["pesq"])){
+                    
                 }
                 else{
                     $pesq = tI($_POST["pesq"]);
@@ -90,48 +90,6 @@
                 }
             ?>
         </div>
-    </div>
-    <div class="animacao">
-            <div class="boxAn"></div>
-            <br>
-            <br>
-            <br>
-            <div class="boxAnRi"></div>
-            <br>
-            <br>
-            <br>
-            <div class="boxAn"></div>
-            <br>
-            <br>
-            <br>
-            <div class="boxAnRi"></div>
-            <br>
-            <br>
-            <br>
-            <div class="boxAn"></div>
-            <br>
-            <br>
-            <div class="boxAnRi"></div>
-            <br>
-            <br>
-            <br>
-            <div class="boxAn"></div>
-            <br>
-            <br>
-            <br>
-            <div class="boxAnRi"></div>
-            <br>
-            <br>
-            <br>
-            <div class="boxAn"></div>
-            <br>
-            <br>
-            <br>
-            <div class="boxAnRi"></div>
-            <br>
-            <br>
-            <br>
-            <div class="boxAn"></div>
     </div>
     <div class="animacao">
             <div class="boxAn"></div>

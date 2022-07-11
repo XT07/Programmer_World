@@ -1,6 +1,7 @@
 <?php
     session_start();
     require("../templates/header.php");
+    include("../include/mysqli.php");
     $usuarioErro = $usuario = "";
     $emailErro = $email = "";
     $senhaErro = $senha = "";
@@ -38,17 +39,24 @@
             $pr = true;
         }
     }
-    include("../include/mysqli.php");
     if($usuario && $email && $senha && isset($_POST["cadastrar"])){
         $sql = $pdo->prepare("SELECT * FROM usuario WHERE nome = ?");
         if($sql->execute(array($usuario))){
             if($sql->rowCount() > 0){
-                $emailErro = "Este usuário já foi cadastrado";
+                $usuarioErro = "Este usuário já foi cadastrado";
             }
             else{
-                $sql = $pdo->prepare("INSERT INTO usuario VALUES (null, ?, ?, ?, ?, null, null)");
-                if($sql->execute(array($usuario, $email, md5($senha), $pr))){}
-                header("LOCATION: login.php");
+                $sql = $pdo->prepare("SELECT * FROM usuario WHERE email = ?");
+                if($sql->execute(array($email))){
+                    if($sql->rowCount() > 0){
+                        $emailErro = "Este e-mail já foi cadastrado";
+                    }
+                    else{
+                        $sql = $pdo->prepare("INSERT INTO usuario VALUES (null, ?, ?, ?, ?, null, null)");
+                        if($sql->execute(array($usuario, $email, md5($senha), $pr))){}
+                        header("LOCATION: login.php");
+                    }
+                }
             }
         }
     }
