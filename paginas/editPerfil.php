@@ -58,7 +58,6 @@
             $pr = true;
         }
     }
-    if()
     if(isset($_POST["alterar"])){
         $fileName = basename($_FILES["img"]["name"]);
         $fileType = pathinfo($fileName, PATHINFO_EXTENSION);
@@ -67,6 +66,9 @@
             $image = $_FILES["img"]["tmp_name"];
             $imgContent = file_get_contents($image);
         }
+    }
+    if(!empty($_SESSION["foto"]) && empty($imgContent)){
+        $imgContent = $_SESSION["foto"];
     }
     if($usuario && $email && $senha && isset($_POST["alterar"])){
         $sql = $pdo->prepare("SELECT * FROM usuario WHERE id_user <> ? AND nome = ?");
@@ -166,6 +168,7 @@
                     <li>
                         <label>Mudar foto de perfil</label><br>
                         <input type="file" name="img"><br>
+                        <label>Máximo suportado 40 GB</label><br>
                         <label>jpg, jpeg, png, gif</label>
                     </li>
                 </ul>
