@@ -13,21 +13,21 @@
         <img src="../img/menu.png" class="imgMenu">
     </label>
     <div class="navMenu">
-        <ul class="ulMenu">
+    <ul class="ulMenu">
             <li class="liMenu">
-                <a href='amigos.php' class="aMenu">Amigos</a>
+                <a href='amigos.php' class="aMenu">Friends</a>
             </li>
             <li class="liMenu">
                 <a href='log-out.php' class="aMenu">Chat</a>
             </li>
             <li class="liMenu">
-                <a href='log-out.php' class="aMenu">Projetos</a>
+                <a href='log-out.php' class="aMenu">Projects</a>
             </li>
             <li class="liMenu">
-                <a href='log-out.php' class="aMenu">Comunidade</a>
+                <a href='log-out.php' class="aMenu">Comunity</a>
             </li>
             <li class="liMenu">
-                <a href='conta.php' class="aMenu">Conta</a>
+                <a href='conta.php' class="aMenu">Account</a>
             </li>
         </ul>
     </div>

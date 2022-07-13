@@ -17,21 +17,21 @@
         <img src="../img/menu.png" class="imgMenu">
     </label>
     <div class="navMenu">
-        <ul class="ulMenu">
+    <ul class="ulMenu">
             <li class="liMenu">
-                <a href='amigos.php' class="aMenu">Amigos</a>
+                <a href='amigos.php' class="aMenu">Friends</a>
             </li>
             <li class="liMenu">
                 <a href='log-out.php' class="aMenu">Chat</a>
             </li>
             <li class="liMenu">
-                <a href='log-out.php' class="aMenu">Projetos</a>
+                <a href='log-out.php' class="aMenu">Projects</a>
             </li>
             <li class="liMenu">
-                <a href='log-out.php' class="aMenu">Comunidade</a>
+                <a href='log-out.php' class="aMenu">Comunity</a>
             </li>
             <li class="liMenu">
-                <a href='conta.php' class="aMenu">Conta</a>
+                <a href='conta.php' class="aMenu">Account</a>
             </li>
         </ul>
     </div>
@@ -45,14 +45,14 @@
             <h1>Perfil</h1>
             <p>
                 <?php
-                    echo "Olá, ".$_SESSION['usuario']."<br><br>";
+                    echo "Hey, ".$_SESSION['usuario']."<br><br>";
                     if($_SESSION['pr'] == 1){
-                        $programador = "Sim";
-                        echo "Programador: ".$programador;
+                        $programador = "Yes";
+                        echo "Programmer: ".$programador;
                     }
                     else{
-                        $programador = "Não";
-                        echo "Programador: ".$programador;
+                        $programador = "No";
+                        echo "Programmer: ".$programador;
                     }
                 ?>
             </p>
@@ -63,22 +63,22 @@
             </p>
             <p>
                 <?php
-                    echo "Senha: ***********************<br>";
+                    echo "Password: ***********************<br>";
                 ?>
             </p>
             <p>
-                Descrição do perfiil<br>
+                profile description<br>
                 <textarea class="descricao" name="descricao" value="" maxlength="1000" readonly><?php echo addslashes($_SESSION["descricao"]); ?>
                 </textarea>
             </p>
-            <p><a href="editPerfil.php" class="aPerfil">Editar perfil</a></p>
+            <p><a href="editPerfil.php" class="aPerfil">Edit profile</a></p>
         </div>
         <ul class="contaUl">
-            <li><a href="conta.php">Perfil</a></li>
-            <li>Privacidade</li>
-            <li>Aparência</li>
-            <li>Notificações</li>
-            <li><a href="log-out.php">Encerrar sessão</a></li>
+        <li><a href="conta.php">Profile</a></li>
+                <li>Privacy</li>
+                <li>Appearance</li>
+                <li>Notifications</li>
+                <li><a href="log-out.php">close session</a></li>
         </ul>
     </div>
     <div class="animacao">

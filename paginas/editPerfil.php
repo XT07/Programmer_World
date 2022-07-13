@@ -107,10 +107,10 @@
     $senhaConfErro = "";
     $senhaConf = "";
     if(isset($_POST["confirm"])){
-        $confirm = "Insira a sua senha: <input type='password' name='senhaConf' class='formInput'>
+        $confirm = "enter your password: <input type='password' name='senhaConf' class='formInput'>
         <br>
         <br>
-        <input type='submit' name='delete' class='btn' value='Confirmar'> ||| <a href=''>Cancelar</a>
+        <input type='submit' name='delete' class='btn' value='confirm'> ||| <a href=''>cancel</a>
         ";
     }
     if(isset($_POST["delete"])){
@@ -128,7 +128,7 @@
                 header("location: deletar-conta.php");
             }
             else{
-                $senhaConfErro = "Senha inválida";
+                $senhaConfErro = "invalid password";
             }
         }
     }
@@ -142,19 +142,19 @@
     <div class="navMenu">
         <ul class="ulMenu">
             <li class="liMenu">
-                <a href='amigos.php' class="aMenu">Amigos</a>
+                <a href='amigos.php' class="aMenu">Friends</a>
             </li>
             <li class="liMenu">
                 <a href='log-out.php' class="aMenu">Chat</a>
             </li>
             <li class="liMenu">
-                <a href='log-out.php' class="aMenu">Projetos</a>
+                <a href='log-out.php' class="aMenu">Projects</a>
             </li>
             <li class="liMenu">
-                <a href='log-out.php' class="aMenu">Comunidade</a>
+                <a href='log-out.php' class="aMenu">Comunity</a>
             </li>
             <li class="liMenu">
-                <a href='conta.php' class="aMenu">Conta</a>
+                <a href='conta.php' class="aMenu">Account</a>
             </li>
         </ul>
     </div>
@@ -166,27 +166,27 @@
                         <?php echo '<img src="data:image/jpg;charset=utf8;base64,'.base64_encode($_SESSION["foto"]).'" class="perfilFoto">' ?>
                     </li>
                     <li>
-                        <label>Mudar foto de perfil</label><br>
+                        <label>Change profile photo</label><br>
                         <input type="file" name="img"><br>
-                        <label>Máximo suportado 40 GB</label><br>
+                        <label>Max suported 40 GB</label><br>
                         <label>jpg, jpeg, png, gif</label>
                     </li>
                 </ul>
-                <h1>Perfil</h1>
+                <h1>Profile</h1>
                 <p>
                     <?php
-                        echo "Olá, ".$_SESSION['usuario']."<br>";
+                        echo "Hey, ".$_SESSION['usuario']."<br>";
                     ?>
-                    <label>Novo nome: </label><br>
+                    <label>New name: </label><br>
                     <input type="text" name="usuario" maxlength="125"  value="<?php echo $_SESSION["usuario"]; ?>" class="formInput"><br>
                     <span class="spanErro"><?php echo $usuarioErro; ?></span><br>
-                    <label>Programador: <input type="checkbox" name="pr" class="formInput" <?php echo $prOk; ?>></label><br>
+                    <label>Programmer: <input type="checkbox" name="pr" class="formInput" <?php echo $prOk; ?>></label><br>
                 </p>
                 <p>
                     <?php
                         echo "E-mail: ".$_SESSION['email']."<br>";
                     ?>
-                    <label>Novo e-mail: </label><br>
+                    <label>New e-mail: </label><br>
                     <input type="email" name="email" maxlength="125" value="<?php echo $_SESSION["email"]; ?>" class="formInput"><br>
                     <span class="spanErro"><?php echo $emailErro; ?></span><br>
                 </p>
@@ -194,26 +194,26 @@
                 <?php
                     echo "Senha: ***********************<br>";
                 ?>
-                    <label>Nova senha: </label><br>
+                    <label>New password: </label><br>
                     <input type="password" name="senha" maxlength="125" class="formInput" value="<?php echo $_SESSION["senhaDescrip"];?>"><br>
                     <span class="spanErro"><?php echo $senhaErro; ?></span><br>
                 </p>
                 <p>
-                    Descrição do perfiil<br>
+                    profile description<br>
                     <textarea class="descricao" name="descricao" value="" maxlength="1000"><?php echo addslashes($_SESSION["descricao"]);?></textarea>
                 </p>
                 <input type="submit" value="Deletar conta" name="confirm" class="btn">
                 <span><?php echo $confirm; ?></span><br>
                 <span class="spanErro"><?php echo $senhaConfErro; ?></span><br><br>
                 <input type="submit" value="salvar" name="alterar" class="btn"><br><br>
-                <a href="conta.php"><b class="voltar"><<</b> Voltar</a>
+                <a href="conta.php"><b class="voltar"><<</b> Back</a>
             </div>
             <ul class="contaUl">
-                <li><a href="conta.php">Perfil</a></li>
-                <li>Privacidade</li>
-                <li>Aparência</li>
-                <li>Notificações</li>
-                <li><a href="log-out.php">Encerrar sessão</a></li>
+                <li><a href="conta.php">Profile</a></li>
+                <li>Privacy</li>
+                <li>Appearance</li>
+                <li>Notifications</li>
+                <li><a href="log-out.php">close session</a></li>
             </ul>
         </div>
     </form>

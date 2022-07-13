@@ -22,7 +22,7 @@
         else{
             $senha = tI($_POST["senha"]);
         }
-    }
+    }   
     $_SESSION["senhaDescrip"] = $senha;
     if($usuario && $senha && isset($_POST["logar"])){
         $sql = $pdo->prepare("SELECT * FROM usuario WHERE nome = ?");
@@ -60,11 +60,11 @@
         <fieldset>
             <div class="formTop">
                 <h2>Login</h2>
-                <p>Não tem login ? <a href="pessoa.php">Cadastre-se</a></p>
-                <label>Usuario</label><br>
+                <p>Don't have registration ? <a href="pessoa.php">registration here</a></p>
+                <label>User</label><br>
                 <input type="text" name="usuario" maxlength="100" class="formInput"><br>
                 <span class="spanErro"><?php echo $usuarioErro; ?></span><br>
-                <label>Senha</label><br>
+                <label>Password</label><br>
                 <input type="password" name="senha" maxlength="100" class="formInput"><br>
                 <span class="spanErro"><?php echo $senhaErro; ?></span><br>
                 <input type="submit" value="Logar" name="logar" class="btn">
